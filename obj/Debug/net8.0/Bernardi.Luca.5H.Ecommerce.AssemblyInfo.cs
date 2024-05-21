@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Bernardi.Luca.5H.Ecommerce")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dfe4fdd5756c3cedac3cf5490d781870e979d238")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1838cf3250deb694b0193b86682d2e9f090c2966")]
 [assembly: System.Reflection.AssemblyProductAttribute("Bernardi.Luca.5H.Ecommerce")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Bernardi.Luca.5H.Ecommerce")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
