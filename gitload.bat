@@ -12,7 +12,7 @@ git add .
 
 commit_message="Test"
 
-git commit -m  
+git commit -m Vipregobasta
 
 git push
 
