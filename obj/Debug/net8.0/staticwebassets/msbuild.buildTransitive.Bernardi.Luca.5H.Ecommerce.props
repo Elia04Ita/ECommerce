@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\Bernardi.Luca.5H.Ecommerce.props" />
-</Project>

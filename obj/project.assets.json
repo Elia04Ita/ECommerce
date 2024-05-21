@@ -8336,11 +8336,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\007ti\\Desktop\\Git\\ECommerce\\Bernardi.Luca.5H.Ecommerce.csproj",
+      "projectUniqueName": "c:\\Users\\007ti\\Desktop\\Git\\ECommerce\\Bernardi.Luca.5H.Ecommerce.csproj",
       "projectName": "Bernardi.Luca.5H.Ecommerce",
-      "projectPath": "C:\\Users\\007ti\\Desktop\\Git\\ECommerce\\Bernardi.Luca.5H.Ecommerce.csproj",
+      "projectPath": "c:\\Users\\007ti\\Desktop\\Git\\ECommerce\\Bernardi.Luca.5H.Ecommerce.csproj",
       "packagesPath": "C:\\Users\\007ti\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\007ti\\Desktop\\Git\\ECommerce\\obj\\",
+      "outputPath": "c:\\Users\\007ti\\Desktop\\Git\\ECommerce\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
