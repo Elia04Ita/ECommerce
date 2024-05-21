@@ -1,3 +1,5 @@
+#!/bin/bash
+
 current_datetime=$(date '+%d-%m-%Y %H:%M')
 
 git add .
