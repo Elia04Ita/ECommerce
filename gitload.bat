@@ -10,7 +10,7 @@ del "ECommerce.sln"
 
 git add .
 
-git commit -am "%current_datetime%"
+git commit -am "Test"
 
 git push
 
