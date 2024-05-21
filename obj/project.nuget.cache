@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "irpbsMqrPoEEZpTjZ/tFP2J2SBtmQmd9dHIUcUwshcYwvYoxCYgi6ZnTnGZC+TCzqTaGTcwF2xp+oxEAi683IA==",
+  "dgSpecHash": "37bAT/grsZkzGBK63y33Le0BQMLSM7H3pcGi8Zbx2ixZExVrfYTa05+aTJJ2WwuDNjCX8BRZ2qF7r0I4aySnQw==",
   "success": true,
-  "projectFilePath": "c:\\Users\\007ti\\Desktop\\Git\\ECommerce\\Bernardi.Luca.5H.Ecommerce.csproj",
+  "projectFilePath": "C:\\Users\\007ti\\Desktop\\Git\\ECommerce\\Bernardi.Luca.5H.Ecommerce.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\007ti\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\007ti\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
