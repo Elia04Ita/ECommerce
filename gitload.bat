@@ -12,7 +12,7 @@ git add .
 
 commit_message="Test"
 
-git commit -m "`date +'%Y-%m-%d %H:%M:%S'` ${@}"
+git commit -m Misonostancatodidaredeinomi
 
 git push
 
