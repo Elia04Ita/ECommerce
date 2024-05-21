@@ -12,7 +12,7 @@ git add .
 
 commit_message="Test"
 
-git commit -am "${commit_message}"
+git commit -m "generated files on `date +'%Y-%m-%d %H:%M:%S'`";
 
 git push
 
