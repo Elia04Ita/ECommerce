@@ -1,0 +1,132 @@
+@model IEnumerable<dynamic> // Modello dinamico per contenere il carrello e il prodotto
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    ViewData["Title"] = "Index";
+    string strIsAdmin = HttpContextAccessor?.HttpContext?.Session.GetString("IsAdmin");
+    bool IsAdmin = strIsAdmin == "True";
+
+    // Calcolo del costo totale
+    decimal totalCost = 0;
+    foreach (var item in Model)
+    {
+        totalCost += item.Prodotto.Price * item.Carrello.Quantita;
+    }
+}
+
+<style>
+    .btn-btn1 {
+        display: inline-block;
+        width: 150px;
+        padding: 5px 5px;
+        margin-top: 10px;
+        background-color: #007bff;
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .btn-canc1 {
+        display: inline-block;
+        width: 150px;
+        padding: 5px 5px;
+        margin-top: 10px;
+        background-color: #dc3545;
+        color: #fff; 
+        text-align: center;
+        text-decoration: none;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }.btn-btn2 {
+        display: inline-block;
+        width: 70px;
+        padding: 5px 5px;
+        background-color: #007bff; 
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .btn-canc2 {
+        display: inline-block;
+        width: 70px;
+        padding: 5px 5px;
+        background-color: #dc3545; 
+        color: #fff; 
+        text-align: center;
+        text-decoration: none;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .text{
+        color: #d2b48c;
+    }
+</style>
+
+<h1>Carrello</h1>
+
+@if (Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="text">
+                    Nome
+                </th>
+                <th class="text">
+                    Prezzo
+                </th>
+                <th class="text">
+                    Quantità
+                </th>
+                <th class="text"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="text">
+                        @item.Prodotto.Name
+                    </td>
+                    <td td class="text">
+                        €@item.Prodotto.Price.ToString("N2")
+                    </td>
+                    <td td class="text">
+                        @item.Carrello.Quantita
+                    </td>
+                    <td td class="text">
+                        <a class="btn-btn2" asp-controller="Prodotti" asp-action="Details" asp-route-id="@item.Carrello.Prodotto">Dettagli</a> |
+                        <a class="btn-canc2" asp-action="Delete" asp-route-id="@item.Carrello.id">Rimuovi</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div>
+        <h3>Costo totale: €@totalCost.ToString("N2")</h3>
+    </div>
+
+<form asp-action="ordine66" method="post">
+    <button type="submit" class="btn-btn1">Acquista prodotti</button>
+</form>
+
+}
+else
+{
+    <p>Nessun prodotto nel carrello</p>
+}
+
+@if (IsAdmin)
+{
+    <form asp-action="DeleteAll" method="post">
+    <button type="submit" class="btn-canc1">Cancella tutti gli ordini ⚠️</button>
+    </form>
+
+}

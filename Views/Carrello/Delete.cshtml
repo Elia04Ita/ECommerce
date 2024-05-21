@@ -1,0 +1,60 @@
+@model Bernardi.Luca._5H.Ecommerce.Models.Carrello
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<style>
+    .btn-btn {
+        display: inline-block;
+        width: 150px;
+        padding: 5px 5px;
+        background-color: #007bff; 
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .btn-canc {
+        display: inline-block;
+        width: 150px;
+        padding: 5px 5px;
+        background-color: #dc3545;
+        color: #fff; 
+        text-align: center;
+        text-decoration: none;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+
+<h1>Rimuovi</h1>
+
+<h3>Sei sicuro di voler rimuoverlo dal carrello?</h3>
+<div>
+    <h4>Carrello</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Prodotto
+        </dt>
+        <dd class="col-sm-10">
+            @ViewData["ProductName"]
+        </dd>
+        <dt class="col-sm-2">
+            Quantità
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Quantita)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="id" />
+        <input type="submit" value="Elimina" class="btn btn-canc" />
+        <a class="btn-btn" asp-action="Index">Torna indietro</a>
+    </form>
+</div>

@@ -1,0 +1,112 @@
+@model Bernardi.Luca._5H.Ecommerce.Models.Utenti
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<style>
+    .btn-btn {
+        display: inline-block;
+        width: auto;
+        margin-top: 10px;
+        padding: 5px 5px;
+        background-color: #007bff;
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .btn-canc {
+        display: inline-block;
+        width: 100px;
+        margin-top: 10px;
+        padding: 5px 5px;
+        background-color: #dc3545;
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+
+<div>
+    <h4>Utenti</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Cognome)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Cognome)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nickname)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nickname)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DataNascita)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DataNascita)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        @if (!string.IsNullOrEmpty(Model?.Numero.ToString()))
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Numero)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Numero)
+            </dd>
+        }
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+        <dd class="col-sm-10">
+            <button type="button" id="togglePassword" style="background: none; border: none; padding: 0;">
+                <img src="https://imgur.com/UE0qdYg.png" alt="Show" id="togglePasswordImage" style="max-width: 30px;">
+            </button>
+            <span id="passwordDisplay">********</span>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn-canc" asp-controller="Utenti" asp-action="LogOut">Disconnettiti</a>
+    <a class="btn-btn" asp-action="Edit" asp-route-id="@Model?.Id">Modifica</a>
+    <a class="btn-btn" asp-controller="Home" asp-action="Index">Torna alla Home</a>
+</div>
+
+@section Scripts {
+    <script>
+        document.getElementById('togglePassword').addEventListener('click', function () {
+            var passwordDisplay = document.getElementById('passwordDisplay');
+            var togglePasswordImage = document.getElementById('togglePasswordImage');
+            if (passwordDisplay.textContent === '********') {
+                passwordDisplay.textContent = '@Model.Password';
+                togglePasswordImage.src = 'https://imgur.com/NcVyAGs.png';
+                togglePasswordImage.alt = 'Hide';
+            } else {
+                passwordDisplay.textContent = '********';
+                togglePasswordImage.src = 'https://imgur.com/UE0qdYg.png';
+                togglePasswordImage.alt = 'Show';
+            }
+        });
+    </script>
+}

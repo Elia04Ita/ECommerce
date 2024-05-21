@@ -1,0 +1,36 @@
+@model Bernardi.Luca._5H.Ecommerce.Models.Carrello
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Dettagli</h1>
+
+<div>
+    <h4>Carrello</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Prodotto)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Prodotto)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Utente)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Utente)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Quantita)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Quantita)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.id">Modifica</a> |
+    <a asp-action="Index">Torna al Carrello</a>
+</div>

@@ -1,0 +1,110 @@
+﻿@model Tuple<List<Prodotti>, List<Prodotti>, List<Prodotti>>
+
+@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Benvenuto alla Bancarella di Nicolas Cage</h1>
+</div>
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+    <div class="carousel-inner">
+        @for (int i = 0; i < Model.Item3.Count; i++)
+        {
+            <div class="carousel-item @(i == 0 ? "active" : "")">
+                <img src="@Model.Item3[i].Image" class="d-block mx-auto" style="height: 200px; object-fit: contain;">
+            </div>
+        }
+    </div>
+</div>
+
+@if (Model.Item1.Any())
+{
+    <div>
+        <h2>Ultimi 3 Articoli Arrivati</h2>
+
+        @foreach (var prodotto in Model.Item1.Take(3))
+        {
+            <div class="prodotto-container">
+                <h4>@prodotto.Name</h4>
+                <p>@prodotto.Description</p>
+                <img src=@prodotto.Image alt="Immagine del prodotto" style="max-width: 300px;">
+                <p>€@(prodotto.Price.ToString("0.00"))</p>
+                <a class="nav-link text-red btn-btn" asp-controller="Prodotti" asp-action="Details" asp-route-id="@prodotto.Id">Scopri</a>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <div>
+        <h2>Non abbiamo niente</h2>
+    </div>
+}
+
+<br><br><br>
+
+@if (Model.Item2.Any())
+{
+    <div>
+        <h2>Prossimi Articoli In Arrivo</h2>
+
+        @foreach (var prodotto in Model.Item2)
+        {
+            <div class="prodotto-container">
+                <h4>@prodotto.Name</h4>
+                <p>@prodotto.Description</p>
+                <img src=@prodotto.Image alt="Immagine del prodotto" style="max-width: 300px;">
+                <p>Data di uscita: @prodotto.ReleaseDate.ToShortDateString()</p>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <div>
+        <h2>Nessun Articolo In Arrivo</h2>
+    </div>
+}
+
+<style>
+    .carousel {
+        margin-top: 50px;
+        height: 230px;
+    }
+    .carousel-item {
+        height: 300px;
+    }
+    .carousel-item img {
+        height: 100%;
+        width: auto;
+        object-fit: contain;
+        margin: auto;
+    }
+    .btn-btn {
+        display: inline-block;
+        width: 80px;
+        padding: 5px 5px;
+        background-color: #ff7b00; 
+        color: #fff; 
+        text-align: center;
+        text-decoration: none;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .prodotto-container {
+        margin: 20px 0;
+    }
+    .prodotto-container img {
+        max-width: 300px;
+        height: auto;
+        margin: auto;
+    }
+</style>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

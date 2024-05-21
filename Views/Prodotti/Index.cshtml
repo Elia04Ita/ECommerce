@@ -1,0 +1,104 @@
+@model IEnumerable<Bernardi.Luca._5H.Ecommerce.Models.Prodotti>
+@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    ViewData["Title"] = "Index";
+    string strIsAdmin = HttpContextAccessor?.HttpContext?.Session.GetString("IsAdmin");
+    Boolean IsAdmin = strIsAdmin=="True" ? true : false;
+}
+
+<style>
+    html{
+        color: beige;
+
+    }
+    .btn-btn {
+        display: inline-block;
+        width: 80px;
+        margin-top: 10px;
+        padding: 5px 5px;
+        background-color: #007bff;
+        color: #fff; 
+        text-align: center;
+        text-decoration: none;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .btn-canc {
+        display: inline-block;
+        width: 80px;
+        margin-top: 10px;
+        padding: 5px 5px;
+        background-color: #dc3545; 
+        color: #fff; 
+        text-align: center;
+        text-decoration: none;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .text{
+        color: #d2b48c;
+    }
+</style>
+
+
+<h1>Prodotti</h1>
+
+@if (IsAdmin)
+{
+    <p>
+        <a asp-action="Create" class="btn-btn">Aggiungi</a>
+    </p>
+}
+
+@if (Model.Any())
+{
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="text">Nome</th>
+                    <th class="text">Rilascio</th>
+                    <th class="text">Descrizione</th>
+                    <th class="text">Prezzo</th>
+                    <th class="text">Immagine</th>
+                    <th class="text"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+    // Verifica se la data di rilascio è nel futuro
+    if (item.ReleaseDate <= DateTime.Now || IsAdmin)
+    {
+        <tr>
+            <td class="text">@Html.DisplayFor(modelItem => item.Name)</td>
+            <td class="text">@Html.DisplayFor(modelItem => item.ReleaseDate)</td>
+            <td class="text">@Html.DisplayFor(modelItem => item.Description)</td>
+            <td class="text">€@Html.DisplayFor(modelItem => item.Price)</td>
+            <td>
+                <img src="@Url.Content(item.Image)" alt="Product Image" class="img-thumbnail" style="max-width: 300px;" />
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn-btn">Dettagli</a>
+                @if (IsAdmin)
+                {
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn-btn">Modifica</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn-canc" onclick="return confirm('Sei sicuro di voler cancellare questo articolo?');">Cancella</a>
+                }
+            </td>
+        </tr>
+    }
+}
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <div class="alert alert-info" role="alert">
+        Nessun articolo trovato
+    </div>
+}

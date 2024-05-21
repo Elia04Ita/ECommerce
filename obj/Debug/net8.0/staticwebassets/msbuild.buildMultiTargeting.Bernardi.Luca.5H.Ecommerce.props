@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Bernardi.Luca.5H.Ecommerce.props" />
+</Project>

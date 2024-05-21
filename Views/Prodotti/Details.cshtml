@@ -1,0 +1,130 @@
+@model Bernardi.Luca._5H.Ecommerce.Models.Prodotti
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    string? Valore = @HttpContextAccessor?.HttpContext?.Session.GetString("Login");
+}
+
+@{
+    ViewData["Title"] = "Dettagli";
+}
+
+<h1>Dettagli</h1>
+
+<div>
+    <h4>Prodotti</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Nome:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            Rilascio sul sito:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ReleaseDate)
+        </dd>
+        <dt class="col-sm-2">
+            Descrizione:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-2">
+            Prezzo:
+        </dt>
+        <dd class="col-sm-10">
+            €@Html.DisplayFor(model => model.Price)
+        </dd>
+        <dd class="col-sm-10">
+            <img src="@Url.Content(Model.Image)" alt="Product Image" class="img-thumbnail" style="max-width: 300px;" />
+        </dd>
+    </dl>
+    @if (!string.IsNullOrEmpty(Valore) == true)
+    {
+        <a id="acquistaLink" class="btn-btn" asp-action="Details" asp-route-id="@Model.Id">Acquista</a>
+    }
+    else
+    {
+        <p class="text-danger">Devi avere un account per acquistare</p>
+    }
+    
+    <div id="notification" class="notification">
+        <a class="nav-link btn-btn" asp-action="Aggiungi" asp-route-id="@Model.Id">Aggiungi al carrello</a>
+        <a class="btn-canc" asp-action="Details" asp-route-id="@Model.Id">Annulla</a>
+    </div>
+</div>
+<div>
+<a class="btn-canc" asp-action="Index">Torna indietro</a>
+</div>
+
+<script>
+    document.getElementById("acquistaLink").addEventListener("click", function(event) {
+        event.preventDefault();
+        showNotification();
+    });
+
+    function showNotification() {
+        var notification = document.getElementById("notification");
+        notification.style.display = "block";
+    }
+</script>
+
+
+<style>
+    .btn-btn {
+        display: inline-block;
+        width: 150px;
+        margin-top: 10px;
+        padding: 5px 5px;
+        background-color: #007bff;
+        color: #fff; 
+        text-align: center;
+        text-decoration: none;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .btn-canc{
+        display: inline-block;
+        width: 150px;
+        margin-top: 10px;
+        padding: 5px 5px;
+        background-color: #dc3545; 
+        color: #fff; 
+        text-align: center;
+        text-decoration: none;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .notification {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #ffffff;
+        color: #ffffff;
+        border-radius: 15px;
+        border: 2px solid #007bff;
+        padding: 25px;
+        width: 300px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.433);
+        z-index: 1000;
+        font-family: 'Arial', sans-serif;
+        text-align: center;
+    }
+
+    .notification.show {
+        display: block;
+        animation: fadeIn 0.5s ease-in-out, fadeOut 0.5s ease-in-out 2.5s;
+    }
+</style>
+
+<div id="notification" class="notification">
+    <h2>Benvenuto nel nostro negozio!</h2>
+    <p>Scopri le nostre offerte speciali di oggi.</p>
+</div>
