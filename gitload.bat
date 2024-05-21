@@ -10,7 +10,9 @@ del "ECommerce.sln"
 
 git add .
 
-git commit -am "Test"
+commit_message="Test"
+
+git commit -am "$commit_message"
 
 git push
 
