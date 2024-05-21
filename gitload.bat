@@ -12,7 +12,7 @@ git add .
 
 commit_message="Test"
 
-git commit -m Misonostancatodidaredeinomi
+git commit -m ‎
 
 git push
 
