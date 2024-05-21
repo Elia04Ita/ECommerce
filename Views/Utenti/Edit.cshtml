@@ -3,6 +3,12 @@
 @{
     string? Valore = @HttpContextAccessor?.HttpContext?.Session.GetString("Login");
 }
+@using Microsoft.AspNetCore.Http;
+@{
+    string strIsAdmin = HttpContextAccessor?.HttpContext?.Session.GetString("IsAdmin");
+    Boolean IsAdmin = strIsAdmin=="True" ? true : false;
+}
+
 
 @{
     ViewData["Title"] = "Modifica";
@@ -79,6 +85,18 @@
                 <input asp-for="Password" class="form-control" />
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
+            @if (IsAdmin)
+{
+    
+            <div class="form-group form-check">
+    <label class="form-check-label" style="position: relative;">
+        <input class="form-check-input" asp-for="Admin" style="pointer-events: none;" /> 
+        @Html.DisplayNameFor(model => model.Admin)
+        <span class="overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0;"></span>
+    </label>
+</div>
+}
+
             <div class="form-group">
                 <input type="submit" value="Salva modifiche" class="btn-btn" />
             </div>
