@@ -1,0 +1,132 @@
+*[b-7ht18ast4d] {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body[b-7ht18ast4d] {
+    background-color: #1a1a1a;
+    color: #d2b48c;
+    line-height: 1.6;
+}
+
+.container[b-7ht18ast4d] {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header[b-7ht18ast4d] {
+    background: #333;
+    color: #d2b48c;
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 3px solid #444;
+}
+
+header h1[b-7ht18ast4d] {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+nav[b-7ht18ast4d] {
+    margin-top: 10px;
+}
+
+nav ul[b-7ht18ast4d] {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li[b-7ht18ast4d] {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a[b-7ht18ast4d] {
+    color: #d2b48c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover[b-7ht18ast4d] {
+    color: #f39c12;
+}
+
+main[b-7ht18ast4d] {
+    padding: 20px;
+    background: #2a2a2a;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+main h2[b-7ht18ast4d] {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+main p[b-7ht18ast4d] {
+    margin-bottom: 20px;
+}
+
+img[b-7ht18ast4d] {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto 20px auto;
+    border: 5px solid #444;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.product[b-7ht18ast4d] {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.product-item[b-7ht18ast4d] {
+    flex: 1 1 calc(33.333% - 20px);
+    margin: 10px;
+    background: #333;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.product-item h3[b-7ht18ast4d] {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.product-item p[b-7ht18ast4d] {
+    margin-bottom: 10px;
+}
+
+button[b-7ht18ast4d] {
+    background: #f39c12;
+    color: #d2b48c;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+button:hover[b-7ht18ast4d] {
+    background: #e67e22;
+}
+
+footer[b-7ht18ast4d] {
+    background: #333;
+    color: #d2b48c;
+    text-align: center;
+    padding: 20px 0;
+    border-top: 3px solid #444;
+}
+
+footer p[b-7ht18ast4d] {
+    margin: 0;
+}
