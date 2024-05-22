@@ -11,7 +11,7 @@ public class Utenti
     [DataType(DataType.Date)]
     public DateTime DataNascita { get; set; }
     public required string Email { get; set; }
-    public int? Numero { get; set; }
+    public long? Numero { get; set; }
     public required string Password { get; set; }
     public required bool Admin { get; set; }
 }  

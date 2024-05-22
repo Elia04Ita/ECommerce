@@ -104,7 +104,132 @@ else
         height: auto;
         margin: auto;
     }
+    #password-form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #password-input {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #password-form button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #ff7b00;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #password-form button:hover {
+        }
+
+        #games {
+            text-align: center;
+        }
+
+        #games button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        #games button:hover {
+            opacity: 0.8;
+        }
+
+        #game1-button {
+            background-color: #ff0000;
+            color: #fff;
+        }
+
+        #game2-button {
+            background-color: #00ff00;
+            color: #000;
+        }
+
+        iframe {
+            display: none;
+            margin-top: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+        }
+
+        .iframe-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
 </style>
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+<div id="password-form">
+    <label for="password-input">Area riservata:</label>
+    <input type="password" id="password-input">
+    <button onclick="checkPassword()">Invio</button>
+</div>
+
+<div id="games" style="display: none;">
+    <button id="game1-button" onclick="showGame('game1')">Mario</button>
+    <button id="game2-button" onclick="showGame('game2')">Tetris</button>
+    <button onclick="resetPassword()">Nascondi</button> 
+
+    <div class="iframe-container">
+        <iframe id="game1" src="" height="500" width="1300"></iframe>
+        <iframe id="game2" src="" height="600" width="728"></iframe>
+    </div>
+</div>
+
+<script>
+    function resetPassword() {
+        const game1 = document.getElementById('game1');
+        const game2 = document.getElementById('game2');
+
+        // Set Mario game to be displayed
+        game1.src = "https://supermario-game.com/mario-game/mario.html";
+        game1.style.display = 'block';
+        game2.style.display = 'none';
+        game2.src = "";
+
+        // Hide password form and games after displaying Mario
+        document.getElementById('password-form').style.display = 'block';
+        document.getElementById('games').style.display = 'none';
+        document.getElementById('password-input').value = ''; // Clear password input
+    }
+
+    function checkPassword() {
+        const password = document.getElementById('password-input').value;
+        if (password === 'arcade') {
+            document.getElementById('password-form').style.display = 'none';
+            document.getElementById('games').style.display = 'block';
+        }
+    }
+
+    function showGame(gameId) {
+        const game1 = document.getElementById('game1');
+        const game2 = document.getElementById('game2');
+
+        if (gameId === 'game1') {
+            game1.src = "https://supermario-game.com/mario-game/mario.html";
+            game1.style.display = 'block';
+            game2.style.display = 'none';
+            game2.src = "";
+        } else if (gameId === 'game2') {
+            game2.src = "https://ytiurin.github.io/tetris/";
+            game2.style.display = 'block';
+            game1.style.display = 'none';
+            game1.src = "";
+        }
+    }
+</script>
+
