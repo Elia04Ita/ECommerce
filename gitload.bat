@@ -17,3 +17,5 @@ git commit -m Vipregobasta
 git push
 
 del "ECommerce.sln"
+
+pause
